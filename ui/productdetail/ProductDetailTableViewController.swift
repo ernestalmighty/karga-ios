@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import RealmSwift
+import Nuke
 
 private let reuseIdentifier = "productDetailCell"
 
@@ -27,8 +28,6 @@ class ProductDetailTableViewController: UITableViewController {
         
         results = Array(realm.objects(ProductOrder.self))
         
-        title = selectedProduct?.displayName
-        
         getProductVariants(storeId: self.storeId, productId: self.selectedProduct?.productId ?? "0")
     }
 
@@ -41,16 +40,40 @@ class ProductDetailTableViewController: UITableViewController {
         let productDetail = productDetailDataSource[section]
         
         let header = Bundle.main.loadNibNamed("ProductVariantHeaderView", owner: self, options: nil)?.last as! ProductVariantHeaderView
-        header.productDetailLabel.text = productDetail.displayName
+        header.configureHeaderView(productDetail: productDetail)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        header.tag = section
+        header.addGestureRecognizer(tap)
 
         return header
     }
-
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        guard let getTag = sender?.view?.tag else { return }
+        let productDetail = productDetailDataSource[getTag]
+        
+        let showAlert = UIAlertController(title: productDetail.displayName, message: nil, preferredStyle: .alert)
+        let imageView = UIImageView(frame: CGRect(x: 10, y: 50, width: 250, height: 230))
+        
+        let request = ImageRequest(url: URL(string: productDetail.imageUrl)!, targetSize: CGSize(width: 300, height: 330), contentMode: .aspectFill)
+        Nuke.loadImage(with: request, into: imageView)
+        
+        showAlert.view.addSubview(imageView)
+        let height = NSLayoutConstraint(item: showAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 330)
+        let width = NSLayoutConstraint(item: showAlert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
+        showAlert.view.addConstraint(height)
+        showAlert.view.addConstraint(width)
+        showAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+            showAlert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(showAlert, animated: true, completion: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return productDetailDataSource[section].variants.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = ProductDetailTableViewCell()
@@ -73,7 +96,6 @@ class ProductDetailTableViewController: UITableViewController {
     
     func getProductVariants(storeId: String, productId: String) {
         let db = Firestore.firestore()
-    
         
         db.collection("stores").document(storeId)
             .collection("inventory")

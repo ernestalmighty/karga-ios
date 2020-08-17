@@ -66,12 +66,12 @@ class ProductDetailTableViewCell: UITableViewCell {
         if(newStepperValue > quantityValue) {
             //increment
             let productOrder = ProductOrder()
-            productOrder.variant = productVariant?.displayName as! String
+            productOrder.variant = productVariant!.displayName
             productOrder.quantity = Int(sender.value)
-            productOrder.category = productVariant?.category as! String
+            productOrder.category = productVariant!.category
             productOrder.iconUrl = self.productImageUrl
-            productOrder.variantId = productVariant?.productVariantId as! String
-            productOrder.price = productVariant?.price as! Float
+            productOrder.variantId = productVariant!.productVariantId
+            productOrder.price = productVariant!.price
             
             try! realm.write {
                 realm.add(productOrder)

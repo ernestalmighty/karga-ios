@@ -7,27 +7,20 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Store {
-    var storeId: String
-    var name: String
-    var address: String
-    var lat: Double
-    var lon: Double
-    var contact: String
-    var social: String
-    var email: String
-    var messenger: String
+class Store: Object {
+    @objc dynamic var storeId: String = ""
+    @objc dynamic var name: String = ""
+    @objc dynamic var address: String = ""
+    @objc dynamic var lat: Double = 0.0
+    @objc dynamic var lon: Double = 0.0
+    @objc dynamic var contact: String = ""
+    @objc dynamic var social: String = ""
+    @objc dynamic var email: String = ""
+    @objc dynamic var messenger: String = ""
     
-    init(storeId: String, name: String, address: String, lat: Double, lon: Double, contact: String, social: String, email: String, messenger: String) {
-        self.storeId = storeId
-        self.name = name
-        self.address = address
-        self.lat = lat
-        self.lon = lon
-        self.contact = contact
-        self.social = social
-        self.email = email
-        self.messenger = messenger
+    override class func primaryKey() -> String? {
+        return "storeId"
     }
 }

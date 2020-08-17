@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import JJFloatingActionButton
+import RealmSwift
 
 class HomeViewController: UIViewController {
 
@@ -20,10 +21,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var storeSocialLabel: UILabel!
     @IBOutlet weak var productsContainerView: UIView!
     
+    let realm = try! Realm()
+    
     var selectedStore: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        homeNavigationItem.largeTitleDisplayMode = .never
         
         getStores()
 
@@ -59,9 +64,20 @@ class HomeViewController: UIViewController {
                     let messenger = document.data()["messenger"] as! String
                     let email = document.data()["email"] as! String
                     
-                    let store = Store(
-                        storeId: storeId, name: displayName, address: address, lat: lat, lon: lon, contact: contact, social: social, email: email, messenger: messenger
-                    )
+                    let store = Store()
+                    store.name = displayName
+                    store.address = address
+                    store.contact = contact
+                    store.social = social
+                    store.messenger = messenger
+                    store.email = email
+                    store.lat = lat
+                    store.lon = lon
+                    store.storeId = storeId
+                    
+                    try! self.realm.write {
+                        self.realm.add(store, update: .modified)
+                    }
                     
                     self.storeNameLabel.text = displayName
                     self.storeAddressLabel.text = address

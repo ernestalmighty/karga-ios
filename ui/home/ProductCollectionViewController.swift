@@ -87,7 +87,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueShowProductDetails" {
-            let controller = segue.destination as! ProductDetailTableViewController
+            let controller = segue.destination as! ProductDetailViewController
             controller.selectedProduct = self.selectedProduct
             controller.storeId = self.storeId
             self.selectedProduct = nil

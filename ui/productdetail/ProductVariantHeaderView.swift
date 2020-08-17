@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import Nuke
 
 class ProductVariantHeaderView: UITableViewHeaderFooterView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    @IBOutlet weak var productDetailImage: UIImageView!
     @IBOutlet weak var productDetailLabel: UILabel!
     
+    func configureHeaderView(productDetail: ProductDetail) {
+        productDetailLabel.text = productDetail.displayName
+        
+        let request = ImageRequest(url: URL(string: productDetail.imageUrl)!, targetSize: CGSize(width: 50, height: 50), contentMode: .aspectFill)
+        Nuke.loadImage(with: request, into: productDetailImage)
+    }
 }
