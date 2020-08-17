@@ -16,4 +16,5 @@ class ProductOrder: Object {
     @objc dynamic var category: String = ""
     @objc dynamic var variant: String = ""
     @objc dynamic var quantity: Int = 0
+    @objc dynamic var iconUrl: String = ""
 }

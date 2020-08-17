@@ -26,7 +26,6 @@ class ProductDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         results = Array(realm.objects(ProductOrder.self))
-        print("test")
         
         title = selectedProduct?.displayName
         
@@ -64,7 +63,7 @@ class ProductDetailTableViewController: UITableViewController {
                 $0.variantId == variant.productVariantId
             })
             
-            productCell.configureProductDetail(productVariant: variant, quantity: orderList.count)
+            productCell.configureProductDetail(productVariant: variant, quantity: orderList.count, imageUrl: selectedProduct?.iconUrl ?? "")
             
             cell = productCell
         }
@@ -123,7 +122,7 @@ class ProductDetailTableViewController: UITableViewController {
                                     stock = Int(document.data()["stock"] as! Float)
                                 }
                                 
-                                let productVariant = ProductVariant(productVariantId: id, displayName: displayName, price: price, stocksLeft: Int(stock))
+                                let productVariant = ProductVariant(productVariantId: id, displayName: displayName, price: price, stocksLeft: Int(stock), category: productDetail.displayName,type: self.selectedProduct?.displayName ?? "")
                                 variantList.append(productVariant)
                             }
                             

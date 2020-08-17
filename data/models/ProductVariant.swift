@@ -13,11 +13,15 @@ class ProductVariant {
     var displayName: String
     var price: Float
     var stocksLeft: Int
+    var category: String
+    var type: String
     
-    init(productVariantId: String, displayName: String, price: Float, stocksLeft: Int) {
+    init(productVariantId: String, displayName: String, price: Float, stocksLeft: Int, category: String, type: String) {
         self.productVariantId = productVariantId
         self.displayName = displayName
         self.price = price
         self.stocksLeft = stocksLeft
+        self.category = category
+        self.type = type
     }
 }

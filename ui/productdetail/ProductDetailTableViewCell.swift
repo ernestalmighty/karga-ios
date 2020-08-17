@@ -21,6 +21,7 @@ class ProductDetailTableViewCell: UITableViewCell {
     
     var productVariant: ProductVariant?
     var quantityValue = 0
+    var productImageUrl = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,8 +34,9 @@ class ProductDetailTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureProductDetail(productVariant: ProductVariant, quantity: Int) {
+    func configureProductDetail(productVariant: ProductVariant, quantity: Int, imageUrl: String) {
         self.productVariant = productVariant
+        self.productImageUrl = imageUrl
         
         productVariantLabel.text = productVariant.displayName
         priceLabel.text = "Php " + String(productVariant.price)
@@ -66,7 +68,10 @@ class ProductDetailTableViewCell: UITableViewCell {
             let productOrder = ProductOrder()
             productOrder.variant = productVariant?.displayName as! String
             productOrder.quantity = Int(sender.value)
+            productOrder.category = productVariant?.category as! String
+            productOrder.iconUrl = self.productImageUrl
             productOrder.variantId = productVariant?.productVariantId as! String
+            productOrder.price = productVariant?.price as! Float
             
             try! realm.write {
                 realm.add(productOrder)
