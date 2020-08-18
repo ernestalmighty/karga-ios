@@ -55,7 +55,7 @@ class ProductDetailTableViewController: UITableViewController {
         
         let showAlert = UIAlertController(title: productDetail.displayName, message: nil, preferredStyle: .alert)
         let imageView = UIImageView(frame: CGRect(x: 10, y: 50, width: 250, height: 230))
-        
+
         let request = ImageRequest(url: URL(string: productDetail.imageUrl)!, targetSize: CGSize(width: 300, height: 330), contentMode: .aspectFill)
         Nuke.loadImage(with: request, into: imageView)
         

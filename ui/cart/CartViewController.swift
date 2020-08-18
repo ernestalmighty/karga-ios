@@ -79,13 +79,10 @@ class CartViewController: UIViewController {
                             var additionalFee = 0
                             
                             if(deliveryFeeEnabled) {
-                                let myLocation = CLLocation(latitude: profile!.addressLat, longitude: profile!.addressLon)
+                                let userLocation = CLLocation(latitude: profile!.addressLat, longitude: profile!.addressLon)
 
-                                //My buddy's location
-                                let myBuddysLocation = CLLocation(latitude: store!.lat, longitude: store!.lon)
-
-                                //Measuring my distance to my buddy's (in km)
-                                let distance = myLocation.distance(from: myBuddysLocation) / 1000
+                                let storeLocation = CLLocation(latitude: store!.lat, longitude: store!.lon)
+                                let distance = userLocation.distance(from: storeLocation) / 1000
                                 
                                 if(Int(distance) > Int(deliveryFreeRadius)) {
                                     let additionalDistance = Int(distance) - Int(deliveryFreeRadius)

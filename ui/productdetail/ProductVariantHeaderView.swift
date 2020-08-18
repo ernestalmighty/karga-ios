@@ -16,8 +16,6 @@ class ProductVariantHeaderView: UITableViewHeaderFooterView {
     
     func configureHeaderView(productDetail: ProductDetail) {
         productDetailLabel.text = productDetail.displayName
-        
-        let request = ImageRequest(url: URL(string: productDetail.imageUrl)!, targetSize: CGSize(width: 50, height: 50), contentMode: .aspectFill)
-        Nuke.loadImage(with: request, into: productDetailImage)
+        self.productDetailImage.image = UIImage(named: "ic_arrow_right")
     }
 }
