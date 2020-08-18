@@ -28,15 +28,14 @@ class CartTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureOrder(productOrder: ProductOrder) {
-        orderNameLabel.text = productOrder.category
-        orderVariantLabel.text = productOrder.variant + " @ Php " + String(productOrder.price)
-        orderQuantityLabel.text = "Qty: " + String(productOrder.quantity)
-        orderAmount.text = String(productOrder.price)
+    func configureOrder(orderGroup: OrderGroup) {
+        orderNameLabel.text = orderGroup.category
+        orderVariantLabel.text = orderGroup.variant + " @ Php " + String(orderGroup.price)
+        orderQuantityLabel.text = "Qty: " + String(orderGroup.quantity)
+        orderAmount.text = String(orderGroup.price * Float(orderGroup.quantity))
         
-        let request = ImageRequest(url: URL(string: productOrder.iconUrl)!, targetSize: CGSize(width: 150, height: 100), contentMode: .aspectFill)
+        let request = ImageRequest(url: URL(string: orderGroup.imageUrl)!, targetSize: CGSize(width: 150, height: 100), contentMode: .aspectFill)
         
         Nuke.loadImage(with: request, into: orderImageView)
     }
-
 }

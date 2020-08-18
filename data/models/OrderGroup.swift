@@ -13,11 +13,15 @@ class OrderGroup {
     var quantity: Int
     var variant: String
     var category: String
+    var imageUrl: String
+    var price: Float
     
-    init(variantId: String, quantity: Int, variant: String, category: String) {
+    init(variantId: String, quantity: Int, variant: String, category: String, imageUrl: String, price: Float) {
         self.variantId = variantId
         self.quantity = quantity
         self.variant = variant
         self.category = category
+        self.imageUrl = imageUrl
+        self.price = price
     }
 }

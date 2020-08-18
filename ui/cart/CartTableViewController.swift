@@ -16,6 +16,7 @@ class CartTableViewController: UITableViewController {
     let realm = try! Realm()
     var results: [ProductOrder] = []
     var productOrderDataSource: [ProductOrder] = []
+    var orderGroupDataSource: [OrderGroup] = []
     @IBOutlet var orderTableView: UITableView!
     
     override func viewDidLoad() {
@@ -24,7 +25,7 @@ class CartTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         productOrderDataSource = Array(realm.objects(ProductOrder.self))
-        orderTableView.reloadData()
+        parseOrders()
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -45,22 +46,35 @@ class CartTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return productOrderDataSource.count
+        return orderGroupDataSource.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = CartTableViewCell()
         
-        let order = productOrderDataSource[indexPath.row]
+        let order = orderGroupDataSource[indexPath.row]
         
         if let orderCell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? CartTableViewCell {
             
-            orderCell.configureOrder(productOrder: order)
+            orderCell.configureOrder(orderGroup: order)
             
             cell = orderCell
         }
         
         return cell
         
+    }
+    
+    func parseOrders() {
+        orderGroupDataSource = []
+        let groupedItems = Dictionary(grouping: productOrderDataSource, by: {$0.variantId})
+        
+        for (_, value) in groupedItems {
+            let orderGroup = OrderGroup(variantId: value[0].variantId, quantity: value.count, variant: value[0].variant, category: value[0].category, imageUrl: value[0].iconUrl, price: value[0].price)
+            
+            orderGroupDataSource.append(orderGroup)
+        }
+        
+        orderTableView.reloadData()
     }
 }
