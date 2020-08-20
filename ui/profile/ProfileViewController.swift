@@ -48,6 +48,36 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, GMSAutocompl
         self.addressLine1TextController = MDCTextInputControllerFilled(textInput: addressLine1TextField)
         self.addressLine2TextController = MDCTextInputControllerFilled(textInput: addressLine2TextField)
         self.deliveryInstructionTextController = MDCTextInputControllerFilled(textInput: deliveryInstructionTextField)
+        
+        self.nameTextField.textColor = UIColor(named: "color_text")
+        self.nameTextController.activeColor = UIColor(named: "color_app")
+        self.nameTextController.inlinePlaceholderColor = UIColor(named: "color_placeholder")
+        self.nameTextController.floatingPlaceholderActiveColor = UIColor(named: "color_text")
+        self.nameTextController.floatingPlaceholderNormalColor = UIColor(named: "color_text")
+        
+        self.contactTextField.textColor = UIColor(named: "color_text")
+        self.contactTextController.activeColor = UIColor(named: "color_app")
+        self.contactTextController.inlinePlaceholderColor = UIColor(named: "color_placeholder")
+        self.contactTextController.floatingPlaceholderActiveColor = UIColor(named: "color_text")
+        self.contactTextController.floatingPlaceholderNormalColor = UIColor(named: "color_text")
+        
+        self.addressLine1TextField.textColor = UIColor(named: "color_text")
+        self.addressLine1TextController.activeColor = UIColor(named: "color_app")
+        self.addressLine1TextController.inlinePlaceholderColor = UIColor(named: "color_placeholder")
+        self.addressLine1TextController.floatingPlaceholderActiveColor = UIColor(named: "color_text")
+        self.addressLine1TextController.floatingPlaceholderNormalColor = UIColor(named: "color_text")
+        
+        self.addressLine2TextField.textColor = UIColor(named: "color_text")
+        self.addressLine2TextController.activeColor = UIColor(named: "color_app")
+        self.addressLine2TextController.inlinePlaceholderColor = UIColor(named: "color_placeholder")
+        self.addressLine2TextController.floatingPlaceholderActiveColor = UIColor(named: "color_text")
+        self.addressLine2TextController.floatingPlaceholderNormalColor = UIColor(named: "color_text")
+        
+        self.deliveryInstructionTextField.textColor = UIColor(named: "color_text")
+        self.deliveryInstructionTextController.activeColor = UIColor(named: "color_app")
+        self.deliveryInstructionTextController.inlinePlaceholderColor = UIColor(named: "color_placeholder")
+        self.deliveryInstructionTextController.floatingPlaceholderActiveColor = UIColor(named: "color_text")
+        self.deliveryInstructionTextController.floatingPlaceholderNormalColor = UIColor(named: "color_text")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -134,6 +164,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, GMSAutocompl
     @IBAction func onAddressTapped(_ sender: Any) {
         print("Test")
         let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.primaryTextColor = UIColor.gray
+        autocompleteController.primaryTextHighlightColor = UIColor.black
+        autocompleteController.secondaryTextColor = .gray
+        
         autocompleteController.delegate = self
 
         // Specify the place data types to return.

@@ -28,23 +28,20 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        homeNavigationItem.largeTitleDisplayMode = .never
-        
-        getStores()
+        let icon = UIImage(named: "AppIcon")
+        let iconSize = CGRect(origin: CGPoint.zero, size: CGSize(width: 50, height: 50))
+        let iconButton = UIButton(frame: iconSize)
+        iconButton.contentMode = .scaleAspectFit
+        iconButton.setBackgroundImage(icon, for: .normal)
+        let barButton = UIBarButtonItem(customView: iconButton)
 
-        let leftIconView = UIImageView(image: UIImage(named: "HomeLogo"))
-        leftIconView.contentMode = .scaleAspectFill
-        leftIconView.frame = CGRect(x: 0, y: 0, width: 120, height: 80)
-        homeNavigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftIconView)
+        homeNavigationItem.leftBarButtonItem = barButton
         
         let rightIconView = UIImageView(image: UIImage(named: "HomeRightLogo"))
-        rightIconView.contentMode = .scaleAspectFill
-        rightIconView.frame = CGRect(x: 0, y: 0, width: 50, height: 20)
+        rightIconView.contentMode = .scaleAspectFit
         homeNavigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightIconView)
         
-        homeStoreView.layer.shadowRadius = 1
-        homeStoreView.layer.shadowOffset = .zero
-        homeStoreView.layer.shadowOpacity = 0.2
+        getStores()
     }
     
     func getStores() {

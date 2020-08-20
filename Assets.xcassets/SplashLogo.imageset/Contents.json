@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Icon-172 (1)-5.png",
+      "filename" : "Icon-173.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -28,7 +28,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "Icon-172 (1)-4.png",
+      "filename" : "Icon-197.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -39,7 +39,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "Icon-172 (1)-2.png",
+      "filename" : "Icon-196 (1).png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -55,7 +55,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Icon-196 (1)-1.png",
+      "filename" : "Icon-1025.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -66,7 +66,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "Icon-196 (1).png",
+      "filename" : "Icon-1024 (1).png",
       "idiom" : "universal",
       "scale" : "3x"
     },

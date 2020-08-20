@@ -49,6 +49,10 @@ class ProductDetailTableViewController: UITableViewController {
         return header
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(45)
+    }
+    
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         guard let getTag = sender?.view?.tag else { return }
         let productDetail = productDetailDataSource[getTag]
