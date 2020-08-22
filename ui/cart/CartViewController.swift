@@ -19,6 +19,7 @@ class CartViewController: UIViewController {
     @IBOutlet weak var totalAmountLabel: UILabel!
     @IBOutlet weak var deliveryFeeLabel: UILabel!
     @IBOutlet weak var deliveryAddressLabel: UILabel!
+    @IBOutlet weak var cartNavigationItem: UINavigationItem!
     
     var additionalFee = 0
     
@@ -29,6 +30,9 @@ class CartViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let result = Array(realm.objects(ProductOrder.self))
+        let totalAmount = result.reduce(0, {$0 + $1.price})
+        
         let profile = realm.objects(Profile.self).first
         var address = "Not set."
         
@@ -36,7 +40,7 @@ class CartViewController: UIViewController {
             address = profile!.addressLine2 + " " + profile!.addressLine1
             getAdditionalFee()
         } else {
-            self.totalAmountLabel.text = "--"
+            self.totalAmountLabel.text = String(totalAmount)
             self.deliveryFeeLabel.text = "--"
         }
         
@@ -58,6 +62,27 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func onProceedButtonClicked(_ sender: Any) {
+        let objects = realm.objects(ProductOrder.self)
+        if(objects.count == 0) {
+            let alertController = UIAlertController(title: "Checkout", message:
+                "Your don't have any orders set", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Proceed to order?", message: "Please review your order and delivery address before proceeding.", preferredStyle: .alert)
+                   alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: "Default action"), style: .default, handler: { _ in
+                       self.proceedToOrder()
+                   }))
+                   
+                   alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Dismiss action"), style: .cancel, handler: { _ in
+                   }))
+                   
+                   self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func proceedToOrder() {
         let db = Firestore.firestore()
         let store = realm.objects(Store.self).first
         let profile = realm.objects(Profile.self).first
@@ -81,7 +106,6 @@ class CartViewController: UIViewController {
             
             let orderGroups = getOrderGroups()
             var totalAmount = Float(0)
-            
             
             var htmlBuilder = ""
             
@@ -117,7 +141,6 @@ class CartViewController: UIViewController {
             }
             
             totalAmount += Float(self.additionalFee)
-            
             
             var summaryBulder = ""
             summaryBulder.append("<p><b>Summary</b></p>")
@@ -179,6 +202,19 @@ class CartViewController: UIViewController {
                 self.deliveryFeeLabel.text = "--"
             }
             
+            let historyDateFormatter = DateFormatter()
+            historyDateFormatter.dateFormat = "yyyy-MM-dd hh:ss a"
+            let historyCurrentDate = historyDateFormatter.string(from: Date())
+            
+            let orderHistory = OrderHistory()
+            orderHistory.id = reference.documentID
+            orderHistory.totalAmount = totalAmount
+            orderHistory.date = historyCurrentDate
+            
+            try! realm.write {
+                realm.add(orderHistory)
+            }
+            
             let alertController = UIAlertController(title: "Checkout", message:
                 "You have successfully placed your order. Please wait for our confrimation.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
@@ -221,7 +257,6 @@ class CartViewController: UIViewController {
                         print("Error getting documents: \(err)")
                     } else {
                         for document in querySnapshot!.documents {
-                            let displayName = document.data()["displayName"] as! String
                             let deliveryExtraPeso = document.data()["deliveryExtraPeso"] as! Double
                             let deliveryFeeEnabled = document.data()["deliveryFeeEnabled"] as! Bool
                             let deliveryFreeRadius = document.data()["deliveryFeeRadiusFree"] as! Double
@@ -242,7 +277,7 @@ class CartViewController: UIViewController {
                                 self.additionalFee = additionalFee
                                 totalAmount += Float(additionalFee)
                             } else {
-                                self.deliveryFeeLabel.text = "*after confirmation"
+                                self.deliveryFeeLabel.text = "0.0"
                             }
                             
                             self.totalAmountLabel.text = String(totalAmount)

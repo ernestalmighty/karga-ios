@@ -14,6 +14,8 @@ class StoreTableViewController: UITableViewController {
 
     @IBOutlet var storeTableView: UITableView!
     
+    weak var delegate: StoreSelectionDelegate?
+    
     let realm = try! Realm()
     
     var storeDataSource: [Store] = []
@@ -57,13 +59,10 @@ class StoreTableViewController: UITableViewController {
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
         guard let getTag = sender?.view?.tag else { return }
         
-        if let navController = presentingViewController as? UINavigationController {
-            let storeSelected = storeDataSource[getTag]
-            let presenter = navController.topViewController as! HomeViewController
-            presenter.selectedStore = storeSelected.storeId
-        }
+        dismiss(animated: true, completion: {
+            self.delegate?.updateStoreSelection(withStore: self.storeDataSource[getTag])
+        })
         
-        dismiss(animated: true, completion: nil)
     }
     
     func getStores() {

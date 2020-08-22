@@ -13,8 +13,8 @@ import Nuke
 
 private let reuseIdentifier = "productDetailCell"
 
-class ProductDetailTableViewController: UITableViewController {
-
+class ProductDetailTableViewController: UITableViewController, ProductDetailDelegate {
+    
     var storeId: String = ""
     var selectedProduct: Product?
     var productDetailDataSource: [ProductDetail] = []
@@ -27,7 +27,6 @@ class ProductDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         
         results = Array(realm.objects(ProductOrder.self))
-        
         getProductVariants(storeId: self.storeId, productId: self.selectedProduct?.productId ?? "0")
     }
 
@@ -64,8 +63,8 @@ class ProductDetailTableViewController: UITableViewController {
         Nuke.loadImage(with: request, into: imageView)
         
         showAlert.view.addSubview(imageView)
-        let height = NSLayoutConstraint(item: showAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 330)
-        let width = NSLayoutConstraint(item: showAlert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
+        let height = NSLayoutConstraint(item: showAlert.view!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 330)
+        let width = NSLayoutConstraint(item: showAlert.view!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
         showAlert.view.addConstraint(height)
         showAlert.view.addConstraint(width)
         showAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
@@ -91,9 +90,11 @@ class ProductDetailTableViewController: UITableViewController {
             })
             
             productCell.configureProductDetail(productVariant: variant, quantity: orderList.count, imageUrl: selectedProduct?.iconUrl ?? "")
+            productCell.delegate = self
             
             cell = productCell
         }
+        
         
         return cell
     }
@@ -169,5 +170,9 @@ class ProductDetailTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    func updateProductOrder(newOrder: ProductOrder, increment: Bool) {
+        results = Array(realm.objects(ProductOrder.self))
     }
 }

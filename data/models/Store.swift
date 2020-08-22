@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 
 class Store: Object {
+    @objc dynamic var id: String = "0"
     @objc dynamic var storeId: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var address: String = ""
@@ -21,6 +22,6 @@ class Store: Object {
     @objc dynamic var messenger: String = ""
     
     override class func primaryKey() -> String? {
-        return "storeId"
+        return "id"
     }
 }

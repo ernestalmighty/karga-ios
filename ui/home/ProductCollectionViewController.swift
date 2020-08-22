@@ -19,7 +19,9 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         getProducts(storeId: self.storeId)
     }
     

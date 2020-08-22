@@ -22,6 +22,8 @@ class ProductDetailTableViewCell: UITableViewCell {
     var productVariant: ProductVariant?
     var quantityValue = 0
     var productImageUrl = ""
+    var delegate: ProductDetailDelegate?
+    var counter = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +32,6 @@ class ProductDetailTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
@@ -40,7 +41,7 @@ class ProductDetailTableViewCell: UITableViewCell {
         
         productVariantLabel.text = productVariant.displayName
         priceLabel.text = "Php " + String(productVariant.price)
-        
+        stocksLeftLabel.isHidden = false
         if(productVariant.stocksLeft == 0) {
             stocksLeftLabel.text = "*Sold out"
             quantityStepper.maximumValue = Double(productVariant.stocksLeft)
@@ -52,6 +53,7 @@ class ProductDetailTableViewCell: UITableViewCell {
             quantityStepper.maximumValue = Double(productVariant.stocksLeft)
         } else {
             stocksLeftLabel.isHidden = true
+            quantityStepper.maximumValue = .infinity
         }
         
         quantityStepper.value = Double(quantity)
@@ -60,10 +62,15 @@ class ProductDetailTableViewCell: UITableViewCell {
     }
     
     @IBAction func quantityStepperAction(_ sender: UIStepper) {
+        let order = realm.objects(ProductOrder.self)
+        let orderCount = order.filter {
+            $0.variantId == self.productVariant?.productVariantId
+        }.count
+        
         productVariantQuantityLabel.text = String(Int(sender.value))
         
         let newStepperValue = Int(sender.value)
-        if(newStepperValue > quantityValue) {
+        if(newStepperValue > orderCount) {
             //increment
             let productOrder = ProductOrder()
             productOrder.variant = productVariant!.displayName
@@ -76,12 +83,24 @@ class ProductDetailTableViewCell: UITableViewCell {
             try! realm.write {
                 realm.add(productOrder)
             }
-        } else if (newStepperValue < quantityValue) {
+            
+            print("Increment")
+            delegate?.updateProductOrder(newOrder: productOrder, increment: true)
+        } else if (newStepperValue < orderCount) {
             //decrement
-            let order = realm.objects(ProductOrder.self).first!
+            let order = realm.objects(ProductOrder.self).first(where: {
+                $0.variantId == productVariant!.productVariantId
+            })
+            
+            print("Decrement")
+            print(order!.category)
+            print(order!.variant)
+            
             try! realm.write {
-                realm.delete(order)
+                realm.delete(order!)
             }
+            
+            delegate?.updateProductOrder(newOrder: order!, increment: false)
         }
     }
 }

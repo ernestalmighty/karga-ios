@@ -32,6 +32,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, GMSAutocompl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initializeHideKeyboard()
+        
         let rightButtonItem = UIBarButtonItem.init(
               title: "Save",
               style: .done,
@@ -188,4 +190,24 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, GMSAutocompl
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return false
     }
+}
+
+extension ProfileViewController {
+
+    func initializeHideKeyboard(){
+       //Declare a Tap Gesture Recognizer which will trigger our dismissMyKeyboard() function
+       let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+           target: self,
+           action: #selector(dismissMyKeyboard))
+       
+       //Add this tap gesture recognizer to the parent view
+       view.addGestureRecognizer(tap)
+   }
+   
+   @objc func dismissMyKeyboard(){
+       //endEditing causes the view (or one of its embedded text fields) to resign the first responder status.
+       //In short- Dismiss the active keyboard.
+       view.endEditing(true)
+   }
+
 }

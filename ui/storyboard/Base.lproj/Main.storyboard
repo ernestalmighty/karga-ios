@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -74,7 +75,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="color_card"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="NFJ-jK-fI9" firstAttribute="leading" secondItem="QY9-MO-4JZ" secondAttribute="leading" constant="8" id="Cip-9t-Kq2"/>
@@ -167,8 +168,16 @@
                         <viewLayoutGuide key="safeArea" id="HKT-qO-ESC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" id="qrz-93-22e"/>
-                    <navigationItem key="navigationItem" title="Checkout" id="gfN-f0-8Ue"/>
+                    <navigationItem key="navigationItem" title="Checkout" id="gfN-f0-8Ue">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="img_order_history" id="oiW-Ld-aPx">
+                            <connections>
+                                <action selector="orderHistory:" destination="vjb-m7-E4c" id="ib7-bq-dYm"/>
+                                <segue destination="PrW-TO-2ej" kind="presentation" id="ShS-tR-Zec"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="cartNavigationItem" destination="gfN-f0-8Ue" id="XFH-6S-Tuv"/>
                         <outlet property="deliveryAddressLabel" destination="eoT-62-neD" id="thz-Vx-Apo"/>
                         <outlet property="deliveryFeeLabel" destination="t5g-pF-Ko0" id="MZV-dU-Ne0"/>
                         <outlet property="deliveryView" destination="QY9-MO-4JZ" id="ZPE-Vi-eSC"/>
@@ -206,7 +215,7 @@
             </objects>
             <point key="canvasLocation" x="-2091" y="1580"/>
         </scene>
-        <!--Home-->
+        <!--Store-->
         <scene sceneID="PZB-H5-ds0">
             <objects>
                 <viewController id="vxE-gn-3xx" customClass="HomeViewController" customModule="GrainsmartKarga" sceneMemberID="viewController">
@@ -215,47 +224,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9OJ-79-r3H" customClass="MDCCard">
-                                <rect key="frame" x="8" y="150" width="398" height="125"/>
+                                <rect key="frame" x="8" y="150" width="398" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA7-Rt-jLP">
-                                        <rect key="frame" x="8" y="28" width="382" height="0.0"/>
+                                        <rect key="frame" x="8" y="10" width="382" height="0.0"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bno-2l-dQe">
-                                        <rect key="frame" x="8" y="32" width="382" height="0.0"/>
+                                        <rect key="frame" x="8" y="14" width="382" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0by-V0-cI1">
-                                        <rect key="frame" x="8" y="36" width="382" height="0.0"/>
+                                        <rect key="frame" x="8" y="18" width="382" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaL-sk-Xvw">
-                                        <rect key="frame" x="8" y="40" width="382" height="0.0"/>
+                                        <rect key="frame" x="8" y="22" width="382" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STORE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47r-X5-esh">
-                                        <rect key="frame" x="8" y="8" width="382" height="12"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" name="color_card"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="47r-X5-esh" secondAttribute="trailing" constant="8" id="0qt-nA-mhS"/>
                                     <constraint firstItem="0by-V0-cI1" firstAttribute="leading" secondItem="KaL-sk-Xvw" secondAttribute="leading" id="13N-V7-G1i"/>
                                     <constraint firstItem="0by-V0-cI1" firstAttribute="trailing" secondItem="KaL-sk-Xvw" secondAttribute="trailing" id="4ki-YH-i4h"/>
-                                    <constraint firstItem="DA7-Rt-jLP" firstAttribute="top" secondItem="47r-X5-esh" secondAttribute="bottom" constant="8" id="5gQ-ih-ldV"/>
-                                    <constraint firstAttribute="height" constant="125" id="7hd-sx-lQN"/>
+                                    <constraint firstAttribute="height" constant="100" id="7hd-sx-lQN"/>
                                     <constraint firstItem="bno-2l-dQe" firstAttribute="leading" secondItem="0by-V0-cI1" secondAttribute="leading" id="MOb-aY-XlE"/>
                                     <constraint firstItem="0by-V0-cI1" firstAttribute="top" secondItem="bno-2l-dQe" secondAttribute="bottom" constant="4" id="MvE-p3-oPt"/>
                                     <constraint firstItem="bno-2l-dQe" firstAttribute="top" secondItem="DA7-Rt-jLP" secondAttribute="bottom" constant="4" id="Qam-aD-VkV"/>
@@ -263,17 +264,16 @@
                                     <constraint firstItem="DA7-Rt-jLP" firstAttribute="leading" secondItem="9OJ-79-r3H" secondAttribute="leading" constant="8" id="aJN-zn-OJz"/>
                                     <constraint firstItem="KaL-sk-Xvw" firstAttribute="top" secondItem="0by-V0-cI1" secondAttribute="bottom" constant="4" id="bEo-eI-1YC"/>
                                     <constraint firstItem="bno-2l-dQe" firstAttribute="trailing" secondItem="0by-V0-cI1" secondAttribute="trailing" id="eaG-jW-GA0"/>
-                                    <constraint firstItem="47r-X5-esh" firstAttribute="leading" secondItem="9OJ-79-r3H" secondAttribute="leading" constant="8" id="fuR-5N-qEL"/>
                                     <constraint firstItem="DA7-Rt-jLP" firstAttribute="leading" secondItem="bno-2l-dQe" secondAttribute="leading" id="r3X-eT-HkY"/>
+                                    <constraint firstItem="DA7-Rt-jLP" firstAttribute="top" secondItem="9OJ-79-r3H" secondAttribute="top" constant="10" id="ti1-Pc-5Xv"/>
                                     <constraint firstItem="DA7-Rt-jLP" firstAttribute="trailing" secondItem="bno-2l-dQe" secondAttribute="trailing" id="tti-Iq-iAA"/>
-                                    <constraint firstItem="47r-X5-esh" firstAttribute="top" secondItem="9OJ-79-r3H" secondAttribute="top" constant="8" id="w6z-IT-8IA"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="ff4-2m-Woj" appends="YES" id="m03-vk-uvq"/>
                                 </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iNr-Hi-AG6">
-                                <rect key="frame" x="0.0" y="295" width="414" height="601"/>
+                                <rect key="frame" x="0.0" y="270" width="414" height="626"/>
                                 <connections>
                                     <segue destination="8iK-tZ-ZEH" kind="embed" identifier="segueShowProducts" id="lwM-Pt-dhm"/>
                                 </connections>
@@ -291,7 +291,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="58s-3v-KH6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="7kF-uf-Jcx" customClass="HomeNavigationItem" customModule="GrainsmartKarga" customModuleProvider="target"/>
+                    <navigationItem key="navigationItem" title="Store" id="7kF-uf-Jcx" customClass="HomeNavigationItem" customModule="GrainsmartKarga" customModuleProvider="target"/>
                     <connections>
                         <outlet property="homeNavigationItem" destination="7kF-uf-Jcx" id="AYI-io-c9m"/>
                         <outlet property="homeStoreView" destination="9OJ-79-r3H" id="Ocv-e1-fP5"/>
@@ -305,7 +305,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhB-kF-EPN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ff4-2m-Woj">
                     <connections>
-                        <segue destination="cah-Se-5L0" kind="presentation" id="vPe-wA-M1n"/>
+                        <segue destination="cah-Se-5L0" kind="presentation" identifier="segueShowStores" id="vPe-wA-M1n"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -316,7 +316,7 @@
             <objects>
                 <viewController id="8iK-tZ-ZEH" customClass="ProductCollectionViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="x5O-SZ-D5t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="601"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="626"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mf9-du-Gw8">
@@ -377,7 +377,7 @@
             <objects>
                 <tableViewController id="hvy-KZ-DEN" customClass="ProductDetailTableViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="eV2-3f-mkl">
-                        <rect key="frame" x="0.0" y="0.0" width="398" height="567"/>
+                        <rect key="frame" x="0.0" y="0.0" width="398" height="592"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -568,13 +568,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zku-th-mzw">
                                                     <rect key="frame" x="8" y="30" width="398" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" name="color_text"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dg5-hb-60F">
                                                     <rect key="frame" x="8" y="8" width="398" height="18"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" name="color_text"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -623,20 +623,67 @@
             </objects>
             <point key="canvasLocation" x="660.86956521739137" y="1018.5267857142857"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="y7p-ZW-MSi">
+        <!--Order History Table View Controller-->
+        <scene sceneID="i5e-uc-34V">
             <objects>
-                <viewController id="WmT-vC-ODe" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nMF-tO-cAW">
+                <tableViewController id="PrW-TO-2ej" customClass="OrderHistoryTableViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="emP-m2-wsP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="Usy-Id-han"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="958-2O-qvP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderHistoryCell" rowHeight="95" id="bxp-6u-QWm" customClass="OrderHistoryTableViewCell" customModule="GrainsmartKarga" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="95"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bxp-6u-QWm" id="Adg-5i-ARd">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFI-2C-uqk">
+                                            <rect key="frame" x="20" y="11" width="86" height="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1100.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znk-8U-mGv">
+                                            <rect key="frame" x="20" y="37" width="42" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="July 25, 1991" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ri7-74-vjE">
+                                            <rect key="frame" x="20" y="62" width="85" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Znk-8U-mGv" firstAttribute="leading" secondItem="ri7-74-vjE" secondAttribute="leading" id="9IX-9z-P2a"/>
+                                        <constraint firstItem="ri7-74-vjE" firstAttribute="top" secondItem="Znk-8U-mGv" secondAttribute="bottom" constant="8" id="I1e-zn-gDA"/>
+                                        <constraint firstItem="UFI-2C-uqk" firstAttribute="leading" secondItem="ri7-74-vjE" secondAttribute="leading" id="PHo-ig-rpy"/>
+                                        <constraint firstItem="UFI-2C-uqk" firstAttribute="centerX" secondItem="ri7-74-vjE" secondAttribute="centerX" id="bMB-d7-3xA"/>
+                                        <constraint firstItem="Znk-8U-mGv" firstAttribute="top" secondItem="UFI-2C-uqk" secondAttribute="bottom" constant="8" id="bZY-d4-Aga"/>
+                                        <constraint firstItem="UFI-2C-uqk" firstAttribute="leading" secondItem="Adg-5i-ARd" secondAttribute="leadingMargin" id="fqY-KX-gQI"/>
+                                        <constraint firstItem="UFI-2C-uqk" firstAttribute="top" secondItem="Adg-5i-ARd" secondAttribute="topMargin" id="tKd-Cp-g1q"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="orderAmount" destination="Znk-8U-mGv" id="1eI-g2-SZd"/>
+                                    <outlet property="orderDate" destination="ri7-74-vjE" id="S4V-y0-rCA"/>
+                                    <outlet property="orderReference" destination="UFI-2C-uqk" id="Bgv-0c-Q2z"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PrW-TO-2ej" id="KxE-wB-hmC"/>
+                            <outlet property="delegate" destination="PrW-TO-2ej" id="Qzc-Rx-xkq"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6d-Mr-61H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1159" y="2300"/>
+            <point key="canvasLocation" x="-1159.4202898550725" y="2351.7857142857142"/>
         </scene>
         <!--Profile-->
         <scene sceneID="7ww-th-vuy">
@@ -714,11 +761,11 @@
             <objects>
                 <viewController id="aiw-bK-6OQ" customClass="ProductDetailViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5rB-O0-EhN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="547"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="572"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmf-lL-x0J">
-                                <rect key="frame" x="8" y="0.0" width="398" height="567"/>
+                                <rect key="frame" x="8" y="0.0" width="398" height="592"/>
                                 <connections>
                                     <segue destination="hvy-KZ-DEN" kind="embed" identifier="segueShowProductDetailsTable" id="IfF-8y-nS3"/>
                                 </connections>
@@ -743,9 +790,16 @@
     <color key="tintColor" name="color_app"/>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="img_order_history" width="25" height="25"/>
         <image name="list.bullet.below.rectangle" catalog="system" width="128" height="112"/>
         <namedColor name="color_app">
-            <color red="0.36470588235294116" green="0.25098039215686274" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.36500000953674316" green="0.25099998712539673" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_card">
+            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color_text">
+            <color red="0.20000000298023224" green="0.097999997437000275" blue="0.075000002980232239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
