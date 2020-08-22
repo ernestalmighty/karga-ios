@@ -11,6 +11,7 @@ import RealmSwift
 import MaterialComponents.MaterialCards
 import Firebase
 import CoreLocation
+import GoogleMobileAds
 
 class CartViewController: UIViewController {
 
@@ -22,11 +23,15 @@ class CartViewController: UIViewController {
     @IBOutlet weak var cartNavigationItem: UINavigationItem!
     
     var additionalFee = 0
+    var interstitial: GADInterstitial!
     
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        //interstitial = GADInterstitial(adUnitID: "ca-app-pub-1965212949581065/4311287745")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +75,9 @@ class CartViewController: UIViewController {
 
             self.present(alertController, animated: true, completion: nil)
         } else {
+            let request = GADRequest()
+            interstitial.load(request)
+            
             let alert = UIAlertController(title: "Proceed to order?", message: "Please review your order and delivery address before proceeding.", preferredStyle: .alert)
                    alert.addAction(UIAlertAction(title: NSLocalizedString("Confirm", comment: "Default action"), style: .default, handler: { _ in
                        self.proceedToOrder()
@@ -217,7 +225,13 @@ class CartViewController: UIViewController {
             
             let alertController = UIAlertController(title: "Checkout", message:
                 "You have successfully placed your order. Please wait for our confrimation.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: { _ in
+                if self.interstitial.isReady {
+                    self.interstitial.present(fromRootViewController: self)
+                } else {
+                  print("Ad wasn't ready")
+                }
+            }))
 
             self.present(alertController, animated: true, completion: nil)
         } else {

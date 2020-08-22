@@ -273,26 +273,37 @@
                                 </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iNr-Hi-AG6">
-                                <rect key="frame" x="0.0" y="270" width="414" height="626"/>
+                                <rect key="frame" x="0.0" y="270" width="414" height="543"/>
                                 <connections>
                                     <segue destination="8iK-tZ-ZEH" kind="embed" identifier="segueShowProducts" id="lwM-Pt-dhm"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUT-eT-6Rr" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="763" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DC6-O3-Q8D"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="iNr-Hi-AG6" firstAttribute="centerX" secondItem="9OJ-79-r3H" secondAttribute="centerX" id="0yX-Ik-Xd8"/>
                             <constraint firstItem="iNr-Hi-AG6" firstAttribute="top" secondItem="9OJ-79-r3H" secondAttribute="bottom" constant="20" id="9iO-4r-aB4"/>
+                            <constraint firstItem="zUT-eT-6Rr" firstAttribute="trailing" secondItem="58s-3v-KH6" secondAttribute="trailing" id="CSv-nm-w05"/>
+                            <constraint firstItem="zUT-eT-6Rr" firstAttribute="leading" secondItem="58s-3v-KH6" secondAttribute="leading" id="Ff3-kr-6EJ"/>
                             <constraint firstItem="9OJ-79-r3H" firstAttribute="leading" secondItem="58s-3v-KH6" secondAttribute="leading" constant="8" id="L2k-dI-UOn"/>
                             <constraint firstItem="9OJ-79-r3H" firstAttribute="top" secondItem="58s-3v-KH6" secondAttribute="top" constant="10" id="MdE-oA-wZW"/>
                             <constraint firstItem="iNr-Hi-AG6" firstAttribute="leading" secondItem="58s-3v-KH6" secondAttribute="leading" id="OPn-yj-7Cc"/>
+                            <constraint firstItem="zUT-eT-6Rr" firstAttribute="bottom" secondItem="58s-3v-KH6" secondAttribute="bottom" id="qZL-Xw-3ex"/>
+                            <constraint firstItem="58s-3v-KH6" firstAttribute="bottom" secondItem="iNr-Hi-AG6" secondAttribute="bottom" id="wjs-SA-xmP"/>
                             <constraint firstItem="58s-3v-KH6" firstAttribute="trailing" secondItem="9OJ-79-r3H" secondAttribute="trailing" constant="8" id="zcO-dZ-Edg"/>
-                            <constraint firstAttribute="bottom" secondItem="iNr-Hi-AG6" secondAttribute="bottom" id="ze8-Vf-M9W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="58s-3v-KH6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Store" id="7kF-uf-Jcx" customClass="HomeNavigationItem" customModule="GrainsmartKarga" customModuleProvider="target"/>
                     <connections>
+                        <outlet property="adBannerView" destination="zUT-eT-6Rr" id="vH5-mm-ehe"/>
                         <outlet property="homeNavigationItem" destination="7kF-uf-Jcx" id="AYI-io-c9m"/>
                         <outlet property="homeStoreView" destination="9OJ-79-r3H" id="Ocv-e1-fP5"/>
                         <outlet property="productsContainerView" destination="iNr-Hi-AG6" id="tN9-yW-uHO"/>
@@ -316,7 +327,7 @@
             <objects>
                 <viewController id="8iK-tZ-ZEH" customClass="ProductCollectionViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="x5O-SZ-D5t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="626"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="543"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mf9-du-Gw8">
@@ -377,7 +388,7 @@
             <objects>
                 <tableViewController id="hvy-KZ-DEN" customClass="ProductDetailTableViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="eV2-3f-mkl">
-                        <rect key="frame" x="0.0" y="0.0" width="398" height="592"/>
+                        <rect key="frame" x="0.0" y="0.0" width="398" height="439"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -761,11 +772,18 @@
             <objects>
                 <viewController id="aiw-bK-6OQ" customClass="ProductDetailViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5rB-O0-EhN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="572"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="489"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCj-gY-z2t" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="439" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="u6J-U6-v74"/>
+                                </constraints>
+                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmf-lL-x0J">
-                                <rect key="frame" x="8" y="0.0" width="398" height="592"/>
+                                <rect key="frame" x="8" y="0.0" width="398" height="439"/>
                                 <connections>
                                     <segue destination="hvy-KZ-DEN" kind="embed" identifier="segueShowProductDetailsTable" id="IfF-8y-nS3"/>
                                 </connections>
@@ -775,16 +793,22 @@
                         <constraints>
                             <constraint firstItem="dpS-7y-Bhr" firstAttribute="trailing" secondItem="Xmf-lL-x0J" secondAttribute="trailing" constant="8" id="7ke-Tz-EWf"/>
                             <constraint firstItem="Xmf-lL-x0J" firstAttribute="top" secondItem="dpS-7y-Bhr" secondAttribute="top" id="DAB-Ed-m2m"/>
-                            <constraint firstItem="Xmf-lL-x0J" firstAttribute="bottom" secondItem="dpS-7y-Bhr" secondAttribute="bottom" constant="20" id="Rhj-5p-boX"/>
+                            <constraint firstItem="uCj-gY-z2t" firstAttribute="trailing" secondItem="dpS-7y-Bhr" secondAttribute="trailing" id="KOJ-cL-HGH"/>
+                            <constraint firstItem="uCj-gY-z2t" firstAttribute="leading" secondItem="dpS-7y-Bhr" secondAttribute="leading" id="LL5-f0-WPE"/>
+                            <constraint firstItem="uCj-gY-z2t" firstAttribute="bottom" secondItem="dpS-7y-Bhr" secondAttribute="bottom" id="Mzo-NW-AvY"/>
+                            <constraint firstItem="uCj-gY-z2t" firstAttribute="top" secondItem="Xmf-lL-x0J" secondAttribute="bottom" id="XWJ-VA-NOi"/>
                             <constraint firstItem="Xmf-lL-x0J" firstAttribute="leading" secondItem="dpS-7y-Bhr" secondAttribute="leading" constant="8" id="wbw-PS-LnF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dpS-7y-Bhr"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="g3L-1g-tpI"/>
+                    <connections>
+                        <outlet property="detailBannerView" destination="uCj-gY-z2t" id="HUg-EO-Soy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFd-lS-CkX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="388"/>
+            <point key="canvasLocation" x="1128.985507246377" y="387.38839285714283"/>
         </scene>
     </scenes>
     <color key="tintColor" name="color_app"/>

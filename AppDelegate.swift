@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Firebase
 import GooglePlaces
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         GMSPlacesClient.provideAPIKey("AIzaSyA5bqSX_Ymp9hs7oZV1yyav0WeNeEz9QTI")
+        
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
         return true
     }
 

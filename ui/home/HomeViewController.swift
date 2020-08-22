@@ -12,6 +12,7 @@ import JJFloatingActionButton
 import RealmSwift
 import MapKit
 import CoreLocation
+import GoogleMobileAds
 
 class HomeViewController: UIViewController, StoreSelectionDelegate, CLLocationManagerDelegate {
 
@@ -22,6 +23,7 @@ class HomeViewController: UIViewController, StoreSelectionDelegate, CLLocationMa
     @IBOutlet weak var storeContactLabel: UILabel!
     @IBOutlet weak var storeSocialLabel: UILabel!
     @IBOutlet weak var productsContainerView: UIView!
+    @IBOutlet weak var adBannerView: GADBannerView!
     
     let realm = try! Realm()
     let locationManager = CLLocationManager()
@@ -31,6 +33,11 @@ class HomeViewController: UIViewController, StoreSelectionDelegate, CLLocationMa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        //adBannerView.adUnitID = "ca-app-pub-1965212949581065/2292269695"
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
         
         let store = self.realm.objects(Store.self).first
         let orders = realm.objects(ProductOrder.self)
