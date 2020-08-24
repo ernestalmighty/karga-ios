@@ -34,8 +34,8 @@ class HomeViewController: UIViewController, StoreSelectionDelegate, CLLocationMa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-        //adBannerView.adUnitID = "ca-app-pub-1965212949581065/2292269695"
+        //adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        adBannerView.adUnitID = "ca-app-pub-1965212949581065/2292269695"
         adBannerView.rootViewController = self
         adBannerView.load(GADRequest())
         

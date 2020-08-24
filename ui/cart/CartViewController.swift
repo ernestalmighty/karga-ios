@@ -30,8 +30,8 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-        //interstitial = GADInterstitial(adUnitID: "ca-app-pub-1965212949581065/4311287745")
+        //interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-1965212949581065/4311287745")
     }
     
     override func viewDidAppear(_ animated: Bool) {

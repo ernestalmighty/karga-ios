@@ -58,7 +58,7 @@ class ProductCollectionViewController: UICollectionViewController, UICollectionV
         let flowayout = collectionViewLayout as? UICollectionViewFlowLayout
         let space: CGFloat = (flowayout?.minimumInteritemSpacing ?? 0.0) + (flowayout?.sectionInset.left ?? 0.0) + (flowayout?.sectionInset.right ?? 0.0)
         let size:CGFloat = (productCollectionView.frame.size.width - space) / 2.0
-        return CGSize(width: size, height: size / 2 + 20)
+        return CGSize(width: size, height: size / 2 + 50)
     }
     
     func getProducts(storeId: String) {

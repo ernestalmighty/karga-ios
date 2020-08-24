@@ -13,6 +13,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var labelProductName: UILabel!
     @IBOutlet weak var imageProductIcon: UIImageView!
+    @IBOutlet weak var comingSoonLabel: UILabel!
     
     func configureProductName(with product: Product) {
         labelProductName.text = product.displayName
@@ -23,5 +24,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         Nuke.loadImage(with: request, into: imageProductIcon)
         
+        if(!product.status) {
+            comingSoonLabel.isHidden = false
+            self.isUserInteractionEnabled = false
+        } else {
+            comingSoonLabel.isHidden = true
+            self.isUserInteractionEnabled = true
+        }
     }
 }
