@@ -8,7 +8,7 @@ target 'GrainsmartKarga' do
   # Pods for GrainsmartKarga
   pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase'
-  pod 'GooglePlaces', '7.1.0'
+  pod 'GooglePlaces'
 
   target 'GrainsmartKargaTests' do
     inherit! :search_paths

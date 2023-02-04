@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@main
 struct GrainsmartKargaApp: App {
     var body: some Scene {
         WindowGroup {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -185,7 +185,6 @@
 				814DD2F77E4ED9DA7BA0D56D /* Pods-GrainsmartKargaTests.debug.xcconfig */,
 				6E1C34A1923BD005DF5ECC9F /* Pods-GrainsmartKargaTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -630,9 +629,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GrainsmartKarga/Preview Content\"";
+				DEVELOPMENT_TEAM = 2YJ6L5RFN2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GrainsmartKarga/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -653,9 +653,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GrainsmartKarga/Preview Content\"";
+				DEVELOPMENT_TEAM = 2YJ6L5RFN2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GrainsmartKarga/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
