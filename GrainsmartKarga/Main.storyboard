@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="la6-wW-PAd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="la6-wW-PAd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -35,7 +35,7 @@
                 <navigationController id="hVz-wy-zLV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="list.bullet.below.rectangle" catalog="system" id="Rj0-Um-9Sa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="JdH-SO-btt">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -55,13 +55,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JT1-mV-KvD">
-                                <rect key="frame" x="10" y="232" width="394" height="471"/>
+                                <rect key="frame" x="10" y="236" width="394" height="467"/>
                                 <connections>
                                     <segue destination="ed4-Fo-zru" kind="embed" identifier="segueShowOrders" id="I0f-EV-D3S"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QY9-MO-4JZ" customClass="MDCCard">
-                                <rect key="frame" x="8" y="150" width="398" height="70"/>
+                                <rect key="frame" x="8" y="154" width="398" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELIVERY ADDRESS:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFJ-jK-fI9">
                                         <rect key="frame" x="8" y="8" width="382" height="12"/>
@@ -178,7 +178,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cartNavigationItem" destination="gfN-f0-8Ue" id="XFH-6S-Tuv"/>
                         <outlet property="deliveryAddressLabel" destination="eoT-62-neD" id="thz-Vx-Apo"/>
                         <outlet property="deliveryFeeLabel" destination="t5g-pF-Ko0" id="MZV-dU-Ne0"/>
                         <outlet property="deliveryView" destination="QY9-MO-4JZ" id="ZPE-Vi-eSC"/>
@@ -202,7 +201,7 @@
                 <navigationController id="TLQ-E7-4ea" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cart" image="cart" catalog="system" id="tCn-o8-7OD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zKt-Ld-3qc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V5x-hW-Wgy">
@@ -219,13 +218,13 @@
         <!--Store-->
         <scene sceneID="PZB-H5-ds0">
             <objects>
-                <viewController id="vxE-gn-3xx" customClass="HomeViewController" customModule="GrainsmartKarga" sceneMemberID="viewController">
+                <viewController id="vxE-gn-3xx" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="519-8G-7jS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9OJ-79-r3H" customClass="MDCCard">
-                                <rect key="frame" x="8" y="150" width="398" height="100"/>
+                                <rect key="frame" x="8" y="154" width="398" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA7-Rt-jLP">
                                         <rect key="frame" x="8" y="10" width="382" height="0.0"/>
@@ -274,7 +273,7 @@
                                 </connections>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iNr-Hi-AG6">
-                                <rect key="frame" x="0.0" y="270" width="414" height="543"/>
+                                <rect key="frame" x="0.0" y="274" width="414" height="539"/>
                                 <connections>
                                     <segue destination="8iK-tZ-ZEH" kind="embed" identifier="segueShowProducts" id="lwM-Pt-dhm"/>
                                 </connections>
@@ -303,16 +302,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Store" id="7kF-uf-Jcx" customClass="HomeNavigationItem" customModule="GrainsmartKarga" customModuleProvider="target"/>
-                    <connections>
-                        <outlet property="adBannerView" destination="zUT-eT-6Rr" id="vH5-mm-ehe"/>
-                        <outlet property="homeNavigationItem" destination="7kF-uf-Jcx" id="AYI-io-c9m"/>
-                        <outlet property="homeStoreView" destination="9OJ-79-r3H" id="Ocv-e1-fP5"/>
-                        <outlet property="productsContainerView" destination="iNr-Hi-AG6" id="tN9-yW-uHO"/>
-                        <outlet property="storeAddressLabel" destination="bno-2l-dQe" id="0Bh-ZD-Bt2"/>
-                        <outlet property="storeContactLabel" destination="0by-V0-cI1" id="mtw-he-cmc"/>
-                        <outlet property="storeNameLabel" destination="DA7-Rt-jLP" id="Or7-2O-Ufy"/>
-                        <outlet property="storeSocialLabel" destination="KaL-sk-Xvw" id="0SJ-zo-Nf2"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhB-kF-EPN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ff4-2m-Woj">
@@ -328,7 +317,7 @@
             <objects>
                 <viewController id="8iK-tZ-ZEH" customClass="ProductCollectionViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="x5O-SZ-D5t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="543"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="539"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mf9-du-Gw8">
@@ -386,9 +375,6 @@
                             </collectionViewCell>
                         </cells>
                     </collectionView>
-                    <connections>
-                        <outlet property="productCollectionView" destination="x5O-SZ-D5t" id="aQ9-TL-fHa"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bkm-im-2fO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -399,7 +385,7 @@
             <objects>
                 <tableViewController id="hvy-KZ-DEN" customClass="ProductDetailTableViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="eV2-3f-mkl">
-                        <rect key="frame" x="0.0" y="0.0" width="398" height="439"/>
+                        <rect key="frame" x="0.0" y="0.0" width="398" height="383"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -484,7 +470,7 @@
             <objects>
                 <tableViewController id="ed4-Fo-zru" customClass="CartTableViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="L7D-lX-SEa">
-                        <rect key="frame" x="0.0" y="0.0" width="394" height="471"/>
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="467"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -573,12 +559,12 @@
             <objects>
                 <tableViewController id="cah-Se-5L0" customClass="StoreTableViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GWV-hJ-F4Z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="storeCell" rowHeight="50" id="zlw-vb-18Z" customClass="StoreTableViewCell" customModule="GrainsmartKarga" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zlw-vb-18Z" id="TIz-Bj-fPP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -650,12 +636,12 @@
             <objects>
                 <tableViewController id="PrW-TO-2ej" customClass="OrderHistoryTableViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="emP-m2-wsP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderHistoryCell" rowHeight="95" id="bxp-6u-QWm" customClass="OrderHistoryTableViewCell" customModule="GrainsmartKarga" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="95"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bxp-6u-QWm" id="Adg-5i-ARd">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
@@ -716,27 +702,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSE-W5-uFJ" customClass="MDCTextField">
-                                <rect key="frame" x="20" y="238" width="374" height="34"/>
+                                <rect key="frame" x="20" y="242" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DhL-iv-F8m" customClass="MDCTextField">
-                                <rect key="frame" x="20" y="282" width="374" height="34"/>
+                                <rect key="frame" x="20" y="286" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery Instructions (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvl-gk-dLo" customClass="MDCTextField">
-                                <rect key="frame" x="20" y="326" width="374" height="34"/>
+                                <rect key="frame" x="20" y="330" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address Line 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkw-1p-LM5" customClass="MDCTextField">
-                                <rect key="frame" x="20" y="194" width="374" height="34"/>
+                                <rect key="frame" x="20" y="198" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address Line 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uct-YL-Kd2" customClass="MDCTextField">
-                                <rect key="frame" x="20" y="150" width="374" height="34"/>
+                                <rect key="frame" x="20" y="154" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -783,18 +769,18 @@
             <objects>
                 <viewController id="aiw-bK-6OQ" customClass="ProductDetailViewController" customModule="GrainsmartKarga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5rB-O0-EhN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="489"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="481"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCj-gY-z2t" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="439" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="431" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="u6J-U6-v74"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmf-lL-x0J">
-                                <rect key="frame" x="8" y="0.0" width="398" height="439"/>
+                                <rect key="frame" x="8" y="48" width="398" height="383"/>
                                 <connections>
                                     <segue destination="hvy-KZ-DEN" kind="embed" identifier="segueShowProductDetailsTable" id="IfF-8y-nS3"/>
                                 </connections>
@@ -827,7 +813,7 @@
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="img_order_history" width="25" height="25"/>
-        <image name="list.bullet.below.rectangle" catalog="system" width="128" height="112"/>
+        <image name="list.bullet.below.rectangle" catalog="system" width="128" height="110"/>
         <namedColor name="color_app">
             <color red="0.36500000953674316" green="0.25099998712539673" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -837,21 +823,6 @@
         <namedColor name="color_text">
             <color red="0.20000000298023224" green="0.097999997437000275" blue="0.075000002980232239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

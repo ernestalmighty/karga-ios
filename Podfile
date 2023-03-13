@@ -9,6 +9,9 @@ target 'GrainsmartKarga' do
   pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase'
   pod 'GooglePlaces'
+  pod 'MaterialComponents/Cards'
+  pod 'RealmSwift'
+  pod 'JJFloatingActionButton'
 
   target 'GrainsmartKargaTests' do
     inherit! :search_paths

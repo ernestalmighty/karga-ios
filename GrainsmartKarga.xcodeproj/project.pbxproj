@@ -19,6 +19,9 @@
 		0346A797298E199900B3B8EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346A794298E199900B3B8EE /* SceneDelegate.swift */; };
 		0346A798298E199900B3B8EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346A795298E199900B3B8EE /* ViewController.swift */; };
 		0346A7A0298E1DDD00B3B8EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0346A79F298E1DDD00B3B8EE /* AppDelegate.swift */; };
+		1C36A822298E642200A6CC49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C36A821298E642200A6CC49 /* GoogleService-Info.plist */; };
+		1C36A825298E69C400A6CC49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C36A823298E69C400A6CC49 /* LaunchScreen.storyboard */; };
+		1C36A826298E69C400A6CC49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C36A824298E69C400A6CC49 /* Main.storyboard */; };
 		8FF66B8259EEC7B3BC32816D /* Pods_GrainsmartKarga_GrainsmartKargaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B16901256ABDBE7D2EE5CA8 /* Pods_GrainsmartKarga_GrainsmartKargaUITests.framework */; };
 		DD355C665D3C6B848CD04FDD /* Pods_GrainsmartKarga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804EF9E876381F713AAD6F1D /* Pods_GrainsmartKarga.framework */; };
 		E151B4E098853253059EF244 /* Pods_GrainsmartKargaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C17D7331606641ED205706 /* Pods_GrainsmartKargaTests.framework */; };
@@ -61,6 +64,11 @@
 		0346A795298E199900B3B8EE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0346A79F298E1DDD00B3B8EE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EBAF86D301C25C56BA9A6AD /* Pods-GrainsmartKarga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrainsmartKarga.release.xcconfig"; path = "Target Support Files/Pods-GrainsmartKarga/Pods-GrainsmartKarga.release.xcconfig"; sourceTree = "<group>"; };
+		1C36A821298E642200A6CC49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1C36A823298E69C400A6CC49 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1C36A824298E69C400A6CC49 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1C36A827298E6AB700A6CC49 /* OrderHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderHeaderView.xib; sourceTree = "<group>"; };
+		1C36A828298E6AB700A6CC49 /* ProductVariantHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductVariantHeaderView.xib; sourceTree = "<group>"; };
 		28C17D7331606641ED205706 /* Pods_GrainsmartKargaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrainsmartKargaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		382D38C3F7B33D20A7B645EC /* Pods-GrainsmartKarga-GrainsmartKargaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrainsmartKarga-GrainsmartKargaUITests.release.xcconfig"; path = "Target Support Files/Pods-GrainsmartKarga-GrainsmartKargaUITests/Pods-GrainsmartKarga-GrainsmartKargaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6E1C34A1923BD005DF5ECC9F /* Pods-GrainsmartKargaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrainsmartKargaTests.release.xcconfig"; path = "Target Support Files/Pods-GrainsmartKargaTests/Pods-GrainsmartKargaTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +132,11 @@
 		0346A752298E134E00B3B8EE /* GrainsmartKarga */ = {
 			isa = PBXGroup;
 			children = (
+				1C36A827298E6AB700A6CC49 /* OrderHeaderView.xib */,
+				1C36A828298E6AB700A6CC49 /* ProductVariantHeaderView.xib */,
+				1C36A823298E69C400A6CC49 /* LaunchScreen.storyboard */,
+				1C36A824298E69C400A6CC49 /* Main.storyboard */,
+				1C36A821298E642200A6CC49 /* GoogleService-Info.plist */,
 				0346A79F298E1DDD00B3B8EE /* AppDelegate.swift */,
 				0346A792298E199900B3B8EE /* GrainsmartKarga.xcdatamodeld */,
 				0346A794298E199900B3B8EE /* SceneDelegate.swift */,
@@ -298,8 +311,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C36A826298E69C400A6CC49 /* Main.storyboard in Resources */,
 				0346A78E298E18F200B3B8EE /* ui in Resources */,
 				0346A75B298E135000B3B8EE /* Preview Assets.xcassets in Resources */,
+				1C36A822298E642200A6CC49 /* GoogleService-Info.plist in Resources */,
+				1C36A825298E69C400A6CC49 /* LaunchScreen.storyboard in Resources */,
 				0346A78D298E18F200B3B8EE /* data in Resources */,
 				0346A758298E135000B3B8EE /* Assets.xcassets in Resources */,
 			);
@@ -632,6 +648,7 @@
 				DEVELOPMENT_TEAM = 2YJ6L5RFN2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GrainsmartKarga/Info.plist;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -656,6 +673,7 @@
 				DEVELOPMENT_TEAM = 2YJ6L5RFN2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = GrainsmartKarga/Info.plist;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

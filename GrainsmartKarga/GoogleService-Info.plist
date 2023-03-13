@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>185463875213-9cd10rp3vpjttumk34nm8vjg3aqg1v56.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.185463875213-9cd10rp3vpjttumk34nm8vjg3aqg1v56</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>185463875213-48i25deldkkjud9mnnlvvh4m31gts0s1.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAW8Sf-D3yw0cquMAovOH3cjfyPwM_xEpg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>185463875213</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gayyedfam.GrainsmartKarga</string>
+	<key>PROJECT_ID</key>
+	<string>kargadelivery</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kargadelivery.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:185463875213:ios:1c2e864e3f47d78faf64c4</string>
+	<key>DATABASE_URL</key>
+	<string>https://kargadelivery.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-1965212949581065~8581705243</string>
+</dict>
+</plist>
